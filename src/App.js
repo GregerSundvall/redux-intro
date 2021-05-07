@@ -1,23 +1,33 @@
 import logo from './logo.svg';
 import './App.css';
+import Counter from "./components/Counter"
+import CounterRedux from "./components/CounterRedux"
+import Profile from './components/Profile';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const alias = useSelector(state => state.profile.alias);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      
+
+      <h1>Redux Intro</h1>
+
+      <h2>Välkommen {alias}!</h2>
+
+      <Profile/>
+
+      <div>Eget state - no Redux
+        <Counter></Counter>
+        <Counter/>
+      </div>
+      <div>Redux state
+      <CounterRedux/>
+      <CounterRedux/>
+      </div>
+      
     </div>
   );
 }
